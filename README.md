@@ -43,13 +43,12 @@ Running the Example
 3. Set the following Environment variables from command prompt
 
       e.g
-      REDIS_HOST="localhost"
-
-      export REDIS_HOST
-      GITHUB_API_TOKEN="xyz"
-      export GITHUB_API_TOKEN
-      GITHUB_USER="githubuser"
-      export GITHUB_USER
+      * REDIS_HOST="localhost"
+      * export REDIS_HOST
+      * GITHUB_API_TOKEN="xyz"
+      * export GITHUB_API_TOKEN
+      * GITHUB_USER="githubuser"
+      * export GITHUB_USER
 
 4. Run the service as follows:
 
