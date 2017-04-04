@@ -2,18 +2,18 @@ GitHub API Read Caching Service
 ===============================
 This is an implementation GitHub API read caching service using Redis and the Java Jersey framework. The following endpoints are cached periodically based on a configured amount of time (passed at runtime) and paginated responses from them are flattened into a single response payload.  API endpoints outside of this set are proxied through the service to GitHub and their responses are cached.
 
-/
-/orgs/Netflix
-/orgs/Netflix/members
-/orgs/Netflix/repos
+* /
+* /orgs/Netflix
+* /orgs/Netflix/members
+* /orgs/Netflix/repos
 
 Additionally the following custom views for Netflix organization repositories are implemented. Each of these end points returns the entire Json body of the repo which can be verified by copying the response and pasting into a JSON viewer like the one available at http://jsonviewer.stack.hu/
 
-Top-N repos by number of forks (/view/top/N/forks)
-Top-N repos by last updated time (/view/top/N/last_updated).
-Top-N repos by open issues (/view/top/N/open_issues).
-Top-N repos by stars (/view/top/N/stars).
-Top-N repos by watchers (/view/top/N/watchers).
+* Top-N repos by number of forks (/view/top/N/forks)
+* Top-N repos by last updated time (/view/top/N/last_updated).
+* Top-N repos by open issues (/view/top/N/open_issues).
+* Top-N repos by stars (/view/top/N/stars).
+* Top-N repos by watchers (/view/top/N/watchers).
 
 A leader election process has been implemented using the Redis SET command with 'NX' and 'expiration' options. The elected leader is solely responsible for periodically refreshing the cache. Additionally the leader proxies API end points not cached to the GitHub API and caches these results. If a request for an API end point not cached in Redis is received by a follower instance, it will delegate the request to the leader.
 
