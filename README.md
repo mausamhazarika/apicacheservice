@@ -21,9 +21,9 @@ A /healthcheck endpoint is provided that returns HTTP 200 when the service is re
 
 Environment Variables Required
 ------------------------------
-REDIS_HOST=<localhost or otherwise>
-GITHUB_USER=<GitHub User Login>
-GITHUB_API_TOKEN=<Personal API Token>
+* REDIS_HOST=localhost or hostname
+* GITHUB_USER=GitHub User Login
+* GITHUB_API_TOKEN=Personal API Token
 
 Runtime Arguments Required
 ---------------------------
@@ -31,9 +31,9 @@ PORT and CACHE-INTERVAL in minutes
 
 Dependencies
 ------------
-Java 1.8
-Maven
-Redis
+* Java 1.8
+* Maven
+* Redis
 
 Running the Example
 -------------------
@@ -42,17 +42,18 @@ Running the Example
 2. Download and run Redis
 3. Set the following Environment variables from command prompt
 
-e.g
-REDIS_HOST="localhost"
-export REDIS_HOST
-GITHUB_API_TOKEN="xyz"
-export GITHUB_API_TOKEN
-GITHUB_USER="githubuser"
-export GITHUB_USER
+      e.g
+      REDIS_HOST="localhost"
+
+      export REDIS_HOST
+      GITHUB_API_TOKEN="xyz"
+      export GITHUB_API_TOKEN
+      GITHUB_USER="githubuser"
+      export GITHUB_USER
 
 4. Run the service as follows:
 
-mvn clean compile resources:resources exec:java -Dexec.args="<port> <cache-interval-in-minutes>"
+__mvn clean compile resources:resources exec:java -Dexec.args="port cache-interval-in-minutes"__
 
 If all requirements are satisfied, the following message should appear in the console
 
@@ -64,17 +65,17 @@ Testing the service
 --------------------
 Once the service is up and running, using a browser or curl try the following URLs. These will return results in JSON format
 
-http://localhost:<port>/
-http://localhost:<port>/orgs/Netflix
-http://localhost:<port>/orgs/Netflix/members
-http://localhost:<port>/orgs/Netflix/members/aglover
-http://localhost:<port>/orgs/repos
-http://localhost:<port>/orgs/Netflix/repos/astyanax
-http://localhost:<port>/view/top/5/forks
-http://localhost:<port>/view/top/5/stars
-http://localhost:<port>/view/top/5/watchers
-http://localhost:<port>/view/top/5/open_issues
-http://localhost:<port>/view/top/5/last_updated
+* http://localhost:<port>/
+* http://localhost:<port>/orgs/Netflix
+* http://localhost:<port>/orgs/Netflix/members
+* http://localhost:<port>/orgs/Netflix/members/aglover
+* http://localhost:<port>/orgs/repos
+* http://localhost:<port>/orgs/Netflix/repos/astyanax
+* http://localhost:<port>/view/top/5/forks
+* http://localhost:<port>/view/top/5/stars
+* http://localhost:<port>/view/top/5/watchers
+* http://localhost:<port>/view/top/5/open_issues
+* http://localhost:<port>/view/top/5/last_updated
 
 Future Optimizations
 --------------------
